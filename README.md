@@ -17,7 +17,7 @@ The dataset [gdppercapita_us_inflation_adjusted.csv](GUI/gdppercapita_us_inflati
 ### Data processing
 To process the data, I used the Linear Regression model from the scikit-learn library. For each country in the dataframe, I created a separate Linear Regression model, trained using the available data from years without missing values. With this model, I could predict the missing GDP values for each year.
 
-However, the models occasionally produced negative predictions. Since GDP cannot be negative, I implemented a correction step, setting any negative predicted values to 0. Final [data](GUI/gdppercapita_us-processed.csv).
+However, the models occasionally produced negative predictions. Since GDP cannot be negative, I implemented a correction step, setting any negative predicted values to 0. Final CSV file can be found [here](GUI/gdppercapita_us-processed.csv).
 
 ### Prediction model
 The Neural Network model consists of three hidden layers with 32, 64, and 64 units, respectively, using the ReLU activation function. The output layer has a single unit with a linear activation function, as this is a regression problem. The model is then compiled with the mean squared error as the loss function and the Adam optimizer. Next, it is trained on the training data using a batch size of 32 for 120 epochs. To optimize the model, I normalized it by dividing every element of the data by the largest value in the data frame.
