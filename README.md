@@ -15,7 +15,7 @@ Desktop app that predicts future GDP per capita based on previous values for yea
 The dataset (gdppercapita_us_inflation_adjusted.csv) was found as a CSV file on https://www.kaggle.com/datasets. It contained data on the GDP of 211 countries over the years 1960-2021. However, the dataset had many missing values, so it required preprocessing. Once I had a clean and ready-to-use dataframe, I created a deep learning neural network to predict future GDP per capita values.
 
 ### Data processing
-To process the data, I usedthe Linear Regression model from the scikit-learn library. For each country in the dataframe, I created a separate Linear Regression model, trained using the available data from years without missing values. With this model, I could predict the missing GDP values for each year.
+To process the data, I used the Linear Regression model from the scikit-learn library. For each country in the dataframe, I created a separate Linear Regression model, trained using the available data from years without missing values. With this model, I could predict the missing GDP values for each year.
 
 However, the models occasionally produced negative predictions. Since GDP cannot be negative, I implemented a correction step, setting any negative predicted values to 0. After this step the data was ready-to-use!
 
