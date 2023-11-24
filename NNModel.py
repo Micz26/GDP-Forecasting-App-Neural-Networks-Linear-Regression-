@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import os
 
 
 class GdpNnModel:
@@ -70,6 +71,15 @@ class GdpNnModel:
         plt.grid(which='major', linestyle='-', linewidth='0.5', color='gray')
         plt.axvspan(2022, 2040, facecolor='red', alpha=0.2)
         return plt
+
+    def create_charts(self):
+        dir = 'C:\\Users\\mikol\\PycharmProjects\\GDP Forecasting\\gdp-charts'
+        for index, country in self.df.iterrows():
+            plot = self.model.make_predictions(country, 19)
+            file_name = f'{country}_gdp_plot.png'
+            file_path = os.path.join(dir, file_name)
+            plt.savefig(file_path)
+            plt.close()
 
 
 

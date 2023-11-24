@@ -66,6 +66,6 @@ def main():
     data_processor = DataProcessor(GDP_df)
     data_processor.handle_missing_values()
     data_processor.processing_data()
-    data_processor.processed_df.to_csv('dppercapita_us-processed')
+    data_processor.processed_df.to_csv('dppercapita_us_processed')
 if __name__ == '__main__':
     main()
