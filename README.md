@@ -1,4 +1,4 @@
-# GDP-Forecasting-app-Neural-Networks-Linear-Regression-
+# GDP-Forecasting-app-AWS-hosted-
 Website hosted on AWS amplify - [link](https://dev.d2ueoghao3mx1q.amplifyapp.com/) that predicts future GDP per capita based on previous values for years 1960-2021. It creates and displays charts (GDP/years). It has been developed using neural networks and linear regression. It utilizes AWS S3 to store pregenerated GDP plots for every country and AWS Lambda alongside API Gateway to handle the application's core logic.
 
 - [Overview](#overview)
