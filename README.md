@@ -1,5 +1,5 @@
 # GDP-Forecasting-app-Neural-Networks-Linear-Regression-
-Website hosted on AWS amplify - link that predicts future GDP per capita based on previous values for years 1960-2021. It creates and displays charts (GDP/years). It has been developed using neural networks and linear regression. It utilizes AWS S3 to store pregenerated GDP plots for every country and AWS Lambda alongside API Gateway to handle the application's core logic.
+Website hosted on AWS amplify - [link](https://dev.d2ueoghao3mx1q.amplifyapp.com/) that predicts future GDP per capita based on previous values for years 1960-2021. It creates and displays charts (GDP/years). It has been developed using neural networks and linear regression. It utilizes AWS S3 to store pregenerated GDP plots for every country and AWS Lambda alongside API Gateway to handle the application's core logic.
 
 - [Overview](#overview)
     - Data processing
@@ -32,7 +32,7 @@ After the model is fully trained, it is used to predict the GDPs of every countr
 The app's GUI prompts the user to input the name of a country in uppercase.
 
 <p align="center">
-  <img src="GUI/GUI_1.png" alt="GUI Screenshot" width="600" height="350">
+  <img src="gdp-charts/Poland_gpt_plot.png" alt="GUI Screenshot" width="600" height="350">
 </p>
 
 Once the country name is entered, the app displays a GDP (year) chart for that country if it is found in the dataset. The area highlighted in red indicates that the values for those years are not actual data points but predictions made by the model.
