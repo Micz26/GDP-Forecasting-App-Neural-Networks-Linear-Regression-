@@ -31,9 +31,11 @@ After the model is fully trained, it is used to predict the GDPs of every countr
 
 This project leverages AWS services for its infrastructure. AWS Amplify hosts the project's website, while AWS API Gateway is employed to create RESTful endpoints for communication between the frontend and backend. AWS Lambda function is responsible for fetching right GDP plots stored in Amazon S3 buckets. Permissions are configured to enable Lambda to access and retrieve these resources from S3.
 
+
 <p align="center">
-  <img src="GDPAPP.png" alt="GUI Screenshot" width="600" height="350">
+  <img src="GDPAPP.drawio.png" alt="GUI Screenshot" width="600" height="350">
 </p>
+
 
 ### App Gui
 The app's GUI prompts the user to input the name of a country in uppercase. Once the country name is entered, the app displays a GDP (year) chart for that country if it is found in the dataset. The area highlighted in red indicates that the values for those years are not actual data points but predictions made by the model.
