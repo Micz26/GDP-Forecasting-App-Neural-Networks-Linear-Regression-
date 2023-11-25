@@ -1,5 +1,5 @@
 # GDP-Forecasting-app-Neural-Networks-Linear-Regression-
-Desktop app that predicts future GDP per capita based on previous values for years 1960-2021. It creates and displays charts (GDP/years). It has been developed using neural networks and linear regression.
+Website hosted on AWS amplify - link that predicts future GDP per capita based on previous values for years 1960-2021. It creates and displays charts (GDP/years). It has been developed using neural networks and linear regression. It utilizes AWS S3 to store pregenerated GDP plots for every country and AWS Lambda alongside API Gateway to handle the application's core logic.
 
 - [Overview](#overview)
     - Data processing
@@ -24,9 +24,7 @@ The Neural Network model consists of three hidden layers with 32, 64, and 64 uni
 
 The NN model is created by predicting the GDP per capita value for the year 2021 and then evaluating it with the real value. The values of the loss and validation loss are equal to 1.8553e-05 and 1.8836e-05, respectively. These results are highly promising, indicating that the model has achieved very low error rates during training and validation. Below, you can find the final values of the loss and validation loss obtained during the model's compilation.
 
-<p align="center">
-  <img src="GUI/Loss.png" alt="Loss" width="400" height="250">
-</p>
+
 
 After the model is fully trained, it is used to predict the GDPs of every country in the future years. In my app, it predicts GDPs until the year 2040, but this can be easily changed. The model then creates and saves charts (GDP/years) for each country's predictions.
 
@@ -39,9 +37,7 @@ The app's GUI prompts the user to input the name of a country in uppercase.
 
 Once the country name is entered, the app displays a GDP (year) chart for that country if it is found in the dataset. The area highlighted in red indicates that the values for those years are not actual data points but predictions made by the model.
 
-<p align="center">
-  <img src="GUI/GUI_2.png" alt="GUI Screenshot" width="600" height="350">
-</p>
+
 
 In this way, the app allows users to interactively explore the GDP trends of different countries and compare the actual historical data with the model's predictions. This visual representation provides valuable insights into how well the model performs in forecasting GDP per capita for various countries over time.
 
@@ -50,23 +46,11 @@ Despite the low values of the loss and validation loss in the model, it cannot b
 
 Model assumes a positive scenario for most cases, in which GDP per capita steadily increases. 
 
-<p align="center">
-  <img src="plots/India_gdp_plot.png" alt="India_gdp_plot" width="500" height="350">
-</p>
 
-<p align="center">
-  <img src="plots/Poland_gdp_plot.png" alt="Poland_gdp_plot" width="500" height="350">
-</p>
 
 However, there are some cases for which it predicts a different trend. For example, in the case of Burundi, the model assumes a negative growth rate for the GDP per capita. The most interesting cases are China, where despite significant GDP per capita growth, the model predicts a downturn, and Syria, where the model foresees a sudden increase until 2032, followed by a sharp decline. More plots can be seen [here](plots).
 
-<p align="center">
-  <img src="plots/China_gdp_plot.png" alt="China_gdp_plot" width="500" height="350">
-</p>
 
-<p align="center">
-  <img src="plots/Syria_gdp_plot.png" alt="Syria_gdp_plot" width="500" height="350">
-</p>
 
 ## License
 This project is licensed under the MIT License - [License](GUI/LICENSE.txt).
