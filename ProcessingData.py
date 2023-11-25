@@ -62,7 +62,7 @@ class DataProcessor:
 
 
 def main():
-    GDP_df = pd.read_csv('C:\\Users\\mikol\\PycharmProjects\\GDP Forecasting\\gdppercapita_us_inflation_adjusted.csv')
+    GDP_df = pd.read_csv('C:\\Users\\mikol\\OneDrive\\Pulpit\\GDP Forecasting\\gdppercapita_us_inflation_adjusted.csv')
     data_processor = DataProcessor(GDP_df)
     data_processor.handle_missing_values()
     data_processor.processing_data()

@@ -1,10 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>GDP Prediction App</title>
+    <title>GDP Chart Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 8px;
+            margin: 8px 0;
+            width: calc(100% - 16px);
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        img#gdpChart {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script>
+        var callAPI = (country) => {
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({"country": country});
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("api-invoke-url", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                // Assuming the API returns a URL to the chart image
+                var chartUrl = result.body.chart;
+                displayChart(chartUrl);
+            })
+            .catch(error => console.log('error', error));
+        }
+
+        // Function to display the chart image on the page
+        var displayChart = (chartUrl) => {
+            var img = document.getElementById('gdpChart');
+            img.src = 'data:image/png;base64,' + chartUrl;
+            img.style.display = 'block';
+            img.style.marginTop = '20px';
+            img.style.width = '80%';
+            img.alt = 'GDP Chart';
+        }
+    </script>
 </head>
 <body>
-
+    <h1>GDP Chart Viewer</h1>
+    <div class="container">
+        <form>
+            <label for="country">Country:</label>
+            <input type="text" id="country">
+            <button type="button" onclick="callAPI(document.getElementById('country').value)">View GDP Chart</button>
+        </form>
+        <img id="gdpChart" src="" alt="GDP Chart">
+    </div>
 </body>
 </html>

@@ -73,9 +73,10 @@ class GdpNnModel:
         return plt
 
     def create_charts(self):
-        dir = 'C:\\Users\\mikol\\PycharmProjects\\GDP Forecasting\\gdp-charts'
-        for index, country in self.df.iterrows():
-            plot = self.model.make_predictions(country, 19)
+        dir = 'C:\\Users\\mikol\\OneDrive\\Pulpit\\GDP Forecasting\\gdp-charts'
+        countries = self.df['country'].tolist()
+        for country in countries:
+            plot = self.make_predictions(country, 19)
             file_name = f'{country}_gdp_plot.png'
             file_path = os.path.join(dir, file_name)
             plt.savefig(file_path)
